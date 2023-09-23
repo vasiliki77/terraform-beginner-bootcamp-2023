@@ -209,6 +209,18 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 If we want to automatically approve an apply, we can provide the auto approve flag.
 `terraform apply --auto-approve`
 
+:warning:
+> S3 Buckets have special [naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+
+
+### Terraform Destroy
+
+`terraform destroy`
+This will destroy resources.
+
+You can also use the auto approve flag to skip the approve prompt
+`terraform destroy --auto-approve `
+
 ### Terraform Lock Files
 
 `.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
