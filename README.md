@@ -240,3 +240,33 @@ If you lose this file, you lose knowing the state of your infrastructure.
 ### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers.
+
+
+## Issues with Terraform Cloud Login and Gitpod Workspace
+
+When you first create a Project and Workspace in Terraform Cloud, you will be provided with guide on how to login from the terminal. 
+
+First we need to run `terraform login`
+
+This will provide you with some options. Press `Q` to continue.
+Then paste the url provided into your browser in order to generate a session token. Set it to expire in 1 day.
+Copy the token. To paste the token into Gitpod terminal, you need to press **Ctrl + Shift + V**
+Because it's sensitive, it won't appear in your terminal. 
+Press Enter. 
+
+Next step will be to run `terraform init`. You will be asked the following:
+> Should Terraform migrate your existing state?
+
+Type yes. After this step, you will be able to view your resources in the Overview of the project in your terraform workspace. 
+
+If you cannot paste the token in the terminal, manually add it in the file specified. (In our case /home/gitpod/.terraform.d/credentials.tfrc.json)
+The format should be the following:
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "paste-your-token"
+    }
+  }
+}
+```
