@@ -209,6 +209,10 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 If we want to automatically approve an apply, we can provide the auto approve flag.
 `terraform apply --auto-approve`
 
+:warning:
+> S3 Buckets have special [naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+
+
 ### Terraform Destroy
 
 `terraform destroy`
