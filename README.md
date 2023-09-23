@@ -270,3 +270,5 @@ The format should be the following:
   }
 }
 ```
+
+The above has been automated using script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
