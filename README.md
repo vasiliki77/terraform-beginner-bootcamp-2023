@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Semantic Versioning](#semantic-versioning-dancersemantic)
+- [Semantic Versioning](#semantic-versioning-dancers)
 - [Install the Terraform CLI](#install-the-terraform-cli)
   - [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
   - [Considerations for Linux Distribution](#considerations-for-linux-distribution)
