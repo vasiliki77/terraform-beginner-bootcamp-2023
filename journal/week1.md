@@ -82,3 +82,25 @@ terraform apply
 It's important to note that Terraform will use the value from the source with the highest precedence. If a variable is defined in multiple places, the value from the source with the highest precedence will be the one used.
 
 Keep in mind that Terraform allows us to use different methods for flexibility and to manage configurations in different environments. However, it's a best practice to document and manage our variable values and sources to avoid unexpected behavior.
+
+## Dealing With Configuration Drift
+
+## What happens if we lose our state file?
+
+If you lose your statefile, you most likely will have to tear down all your cloud infrastructure manually.
+
+You can use terraform import but it won't work for all cloud resources. You need to check the terraform providers documentation for which resources support import.
+
+### Fix Missing Resources with Terraform Import
+
+```
+terraform import aws_s3_bucket.bucket bucket-name
+```
+[AWS S3 bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+[Terraform Import](https://developer.hashicorp.com/terraform/language/import)
+
+### Fix Manual COnfiguration
+
+If someone deletes or modifies cloud resources manually through ClickOps.
+
+If we run Terraform plan it will attempt to put our infrastructure back into the expected state fixing configuration drift.
