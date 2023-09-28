@@ -16,3 +16,23 @@ variable "bucket_name" {
     error_message = "bucket_name must be a valid AWS S3 bucket name."
   }
 }
+
+variable "index_html_filepath" {
+  description = "Path to the index.html file for your static website"
+  type = string
+  # Define a custom validation function to check if the file exists
+  validation {
+    condition     = fileexists(var.index_html_filepath)
+    error_message = "The specified index_html_filepath does not exist or is not a valid file path."
+  }
+}
+
+variable "error_html_filepath" {
+  description = "Path to the index.html file for your static website"
+  type = string
+  # Define a custom validation function to check if the file exists
+  validation {
+    condition     = fileexists(var.error_html_filepath)
+    error_message = "The specified error_html_filepath does not exist or is not a valid file path."
+  }
+}
