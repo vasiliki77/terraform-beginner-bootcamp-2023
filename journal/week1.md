@@ -184,3 +184,45 @@ resource "aws_s3_object" "error_html" {
   etag = filemd5(var.error_html_filepath)
 }
 ```
+
+### Terraform Locals
+
+A local value assigns a name to an expression, so you can use the name multiple times within a module instead of repeating the expression.
+
+```
+locals {
+    s3_origin_id = "MyS3Origin"
+}
+```
+
+[Local Values](https://developer.hashicorp.com/terraform/language/values/locals)
+
+
+### Terraform Data Sources
+
+This allows us to source data from cloud resources.
+
+This is useful when we want to reference cloud resources without importing them.
+
+```tf
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+```
+
+[Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+
+
+### Working with JSON
+
+jsonencode encodes a given value to a string using JSON syntax. We used it to add the S3 Bucket policy.
+
+```tf
+> jsonencode({"hello"="world"})
+{"hello":"world"}
+
+```
+
+[jsonencode Function](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
