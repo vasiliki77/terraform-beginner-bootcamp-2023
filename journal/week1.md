@@ -240,3 +240,56 @@ Changing the lifecycle of resources
 The terraform_data implements the standard resource lifecycle, but does not directly take any other actions. You can use the terraform_data resource without requiring or configuring a provider. It is always available through a built-in provider with the source address `terraform.io/builtin/terraform`.
 
 [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+
+## Provisioners
+
+Provisioners allow you to execute commands on compute instances e.g.. AWS CLI command.
+
+They are not recommended for use by Hashicorp because configuration management tools such as ansible are a better fit, but the functionality exists.
+[Provisioners](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax)
+
+### Local-exec 
+
+This will execute on the machine running the terraform commands eb.plan apply
+
+```
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command = "echo The server's IP address is ${self.private_ip}"
+  }
+}
+
+```
+
+[Heredoc](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings
+)
+
+### Remote-exec
+
+This will execute commands on a machine which you target. You will need to provide credentials such as ssh to get into the machine. 
+
+```
+resource "aws_instance" "web" {
+  # ...
+
+  # Establishes connection to be used by all
+  # generic remote provisioners (i.e. file/remote-exec)
+  connection {
+    type     = "ssh"
+    user     = "root"
+    password = var.root_password
+    host     = self.public_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "puppet apply",
+      "consul join ${aws_instance.web.private_ip}",
+    ]
+  }
+}
+
+```
