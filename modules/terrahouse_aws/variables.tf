@@ -28,7 +28,7 @@ variable "index_html_filepath" {
 }
 
 variable "error_html_filepath" {
-  description = "Path to the index.html file for your static website"
+  description = "Path to the error.html file for your static website"
   type = string
   # Define a custom validation function to check if the file exists
   validation {
