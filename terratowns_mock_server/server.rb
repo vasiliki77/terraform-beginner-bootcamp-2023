@@ -16,6 +16,7 @@ class Home
   # The production Terratowns server is rails and uses
   # very similar and in most cases identical validation.
   # https://guides.rubyonrails.org/active_model_basics.html
+  # https://guides.rubyonrails.org/active_record_validations.html
   include ActiveModel::Validations
 
   # create some virtual attributes to be stored on this object
