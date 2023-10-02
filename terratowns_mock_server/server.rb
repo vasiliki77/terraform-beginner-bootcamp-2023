@@ -37,15 +37,21 @@ class Home
     `the-nomad-pad`,
     `gamers-grotto`
   ] }
+  # visible to all users
   validates :name, presence: true
+  # visible to all users
   validates :description, presence: true
+  # we want to lock this down to only be from cloudfront
   validates :domain_name, 
     format: { with: /\.cloudfront\.net\z/, message: "domain must be from .cloudfront.net" }
     # uniqueness: true, 
-
+# content version has to be an integer 
+# we will make user it's an incremental version in the controller.
   validates :content_version, numericality: { only_integer: true }
 end
 
+# We are extending a class from Sinatra::Base to 
+# turn this generic class to utilise the sinatra web-framework
 class TerraTownsMockServer < Sinatra::Base
 
   def error code, message
@@ -211,5 +217,5 @@ class TerraTownsMockServer < Sinatra::Base
     { message: "House deleted successfully" }.to_json
   end
 end
-
+# This is what will run the server
 TerraTownsMockServer.run!
