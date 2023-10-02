@@ -302,3 +302,17 @@ for_each is a meta-argument defined by the Terraform language. It can be used wi
 The for_each meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
 
 [for_each expression](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
+## Fixing Tags
+
+[How To Delete Local and Remote Tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+Local delete tag
+```
+git tag -d <tag_name>
+```
+
+Remote delete tag
+```
+git push --delete origin tagname
+```
