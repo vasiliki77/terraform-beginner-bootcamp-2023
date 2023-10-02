@@ -2,7 +2,9 @@ require 'sinatra'
 require 'json'
 require 'pry'
 require 'active_model'
-
+# We will mock having a state or database for this development server
+# by setting a global variable. You would never use a global variable
+# in a production server.
 $home = {}
 
 class Home
