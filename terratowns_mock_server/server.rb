@@ -17,6 +17,13 @@ class Home
   # very similar and in most cases identical validation.
   # https://guides.rubyonrails.org/active_model_basics.html
   include ActiveModel::Validations
+
+  # create some virtual attributes to be stored on this object
+  # This will set a getter and a setter
+  # eg:
+  # home = new Home()
+  # home.town = 'hello' # setter
+  # home.town() # getter
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
   validates :town, presence: true
