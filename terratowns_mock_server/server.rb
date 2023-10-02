@@ -27,7 +27,16 @@ class Home
   # home.town() # getter
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
-  validates :town, presence: true
+
+# gamers-groto
+# cooker-cove
+  validates :town, presence: true, inclusion: { in: [
+    `cooker-cove`,
+    `melomaniac-mansion`,
+    `video-valley`,
+    `the-nomad-pad`,
+    `gamers-grotto`
+  ] }
   validates :name, presence: true
   validates :description, presence: true
   validates :domain_name, 
