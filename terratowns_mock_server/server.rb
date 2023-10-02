@@ -7,7 +7,15 @@ require 'active_model'
 # in a production server.
 $home = {}
 
+# This is a ruby class that includes validation from ActiveRecord.
+#This will represent our Home resources as a ruby object. 
 class Home
+  # ActiveModel is part of Ruby on Rails.
+  # It is used as an ORM. It has a module within
+  # ActiveModel that provides validations.
+  # The production Terratowns server is rails and uses
+  # very similar and in most cases identical validation.
+  # https://guides.rubyonrails.org/active_model_basics.html
   include ActiveModel::Validations
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
