@@ -71,7 +71,7 @@ class TerraTownsMockServer < Sinatra::Base
       error 406, "expected Accept header to be application/json"
     end
   end
-
+# return a hardcoded access token
   def x_access_code
     '9b49b3fb-b8e9-483c-b703-97ba88eef8e0'
   end
@@ -81,16 +81,21 @@ class TerraTownsMockServer < Sinatra::Base
   end
 
   def find_user_by_bearer_token
+    # https://swagger.io/docs/specification/authentication/bearer-authentication/
     auth_header = request.env["HTTP_AUTHORIZATION"]
+    # Check if the authorisation header exists
     if auth_header.nil? || !auth_header.start_with?("Bearer ")
       error 401, "a1000 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
 
+    # Does the token match the one in our database?
+    # if we can't find it or if it doesn't match then return an error
+    # code = access_code = token
     code = auth_header.split("Bearer ")[1]
     if code != x_access_code
       error 401, "a1001 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
-
+# was there a user_uuid in the body payload json?
     if params['user_uuid'].nil?
       error 401, "a1002 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
