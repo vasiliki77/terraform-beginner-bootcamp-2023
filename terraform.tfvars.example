@@ -1,6 +1,13 @@
 terratowns_endpoint="https://terratowns.cloud/api"
-bucket_name = "s5v9b1bspbstfer6hho6rrpmc50ddk3l"
-index_html_filepath = "/workspace/terraform-beginner-bootcamp-2023/public/index.html"
-error_html_filepath = "/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-content_version = 1
-assets_path = "/workspace/terraform-beginner-bootcamp-2023/public/assets/"
+spongebob = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/spongebob"
+    content_version = 1
+}
+lacta = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/lacta"
+    content_version = 1
+}
+
+
+
+#bucket_name = "s5v9b1bspbstfer6hho6rrpmc50ddk3l"
