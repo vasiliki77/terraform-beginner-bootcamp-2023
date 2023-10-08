@@ -32,7 +32,7 @@ Bikini Bottom is a real place.
 It's a fresh water bubble on the ocean floor.
 DESCRIPTION
   domain_name = module.home_spongebob_hosting.domain_name
-  town = "missingo"
+  town = "video-valley"
   content_version = var.spongebob.content_version
 }
 
@@ -50,6 +50,6 @@ Lacta is the best chocolate in the world!
 It's the best valentines gift.
 DESCRIPTION
   domain_name = module.home_lacta_hosting.domain_name
-  town = "missingo"
+  town = "cooker-cove"
   content_version = var.lacta.content_version
 }
