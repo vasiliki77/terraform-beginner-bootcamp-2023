@@ -1,5 +1,16 @@
 # Terraform Beginner Bootcamp 2023 - Week2
 
+# Table of Contents
+
+1. [Working with Ruby](#working-with-ruby)
+    - [Bundler](#bundler)
+        - [Install Gems](#install-gems)
+        - [Executing Ruby Scripts in the Context of Bundler](#executing-ruby-scripts-in-the-context-of-bundler)
+    - [Sinatra](#sinatra)
+2. [Terratowns Mock Server](#terratowns-mock-server)
+    - [Running the Web Server](#running-the-web-server)
+3. [CRUD](#crud)
+
 
 ## Working with Ruby
 
