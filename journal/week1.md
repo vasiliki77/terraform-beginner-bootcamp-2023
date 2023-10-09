@@ -1,5 +1,43 @@
 # Terraform Beginner Bootcamp 2023 - Week1
 
+# Table of Contents
+
+1. [Root Module Structure](#root-module-structure)
+    - [Standard Module Structure](#standard-module-structure)
+2. [Terraform and Input Variables](#terraform-and-input-variables)
+    - [Terraform Cloud Variables](#terraform-cloud-variables)
+    - [Loading Terraform Input Variables](#loading-terraform-input-variables)
+    - [var flat](#var-flat)
+    - [var-file flag](#var-file-flag)
+    - [terraform.tfvars](#terraformtfvars)
+    - [auto.tfvars](#autotfvars)
+    - [Order of Terraform Variables](#order-of-terraform-variables)
+3. [Dealing With Configuration Drift](#dealing-with-configuration-drift)
+    - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
+    - [Fix Missing Resources with Terraform Import](#fix-missing-resources-with-terraform-import)
+    - [Fix Manual Configuration](#fix-manual-configuration)
+    - [Fix using Terraform Refresh](#fix-using-terraform-refresh)
+4. [Terraform Modules](#terraform-modules)
+    - [Terraform Module Structure](#terraform-module-structure)
+    - [Passing Input Variables](#passing-input-variables)
+    - [Modules Sources](#modules-sources)
+5. [Considerations when using ChatGPT to write Terraform](#considerations-when-using-chatgpt-to-write-terraform)
+6. [Working with Files in Terraform](#working-with-files-in-terraform)
+    - [Fileexists function](#fileexists-function)
+    - [Filemd5](#filemd5)
+    - [Path Variable](#path-variable)
+    - [Terraform Locals](#terraform-locals)
+    - [Terraform Data Sources](#terraform-data-sources)
+    - [Working with JSON](#working-with-json)
+    - [The lifecycle Meta-Argument](#the-lifecycle-meta-argument)
+    - [Terraform Data](#terraform-data)
+7. [Provisioners](#provisioners)
+    - [Local-exec](#local-exec)
+    - [Remote-exec](#remote-exec)
+8. [For Each Expressions](#for-each-expressions)
+9. [Fixing Tags](#fixing-tags)
+
+
 ## Root Module Structure
 
 Our root module structure is as follows:
